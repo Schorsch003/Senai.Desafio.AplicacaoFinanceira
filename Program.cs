@@ -26,15 +26,15 @@ namespace Senai.Desafio.AplicacaoFinanceira {
                             switch (codigoLogado) {
                                 case 1:
                                     //Inserir credito
-                                    TransicaoController.InserirCredito();
+                                    TransicaoController.InserirCredito(usuarioLogado);
                                     break;
                                 case 2:
                                     //REalizar transição
-                                    TransicaoController.DebitarDespesa();
+                                    TransicaoController.DebitarDespesa(usuarioLogado);
                                     break;
                                 case 3:
                                     //
-                                    TransicaoController.ListarTransacoes();
+                                    TransicaoController.ListarTransacoes(usuarioLogado);
                                     break;
 
                                 case 0:

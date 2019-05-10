@@ -6,7 +6,7 @@ using Senai.Desafio.AplicacaoFinanceira.Repositorio;
 namespace Senai.Desafio.AplicacaoFinanceira.Controller {
     public class TransicaoController {
         static TransacaoRepositorio tr = new TransacaoRepositorio ();
-        public static void InserirCredito () {
+        public static void InserirCredito (UsuarioModel us) {
             float valor;
             string descricao;
             Console.WriteLine ("Qual o Valor requisitado");
@@ -15,6 +15,7 @@ namespace Senai.Desafio.AplicacaoFinanceira.Controller {
             descricao = Console.ReadLine ();
 
             TransacaoModel transacao = new TransacaoModel ();
+            transacao.IdUsuario = us.Id;
             transacao.TipoTransacao = "Receita";
             transacao.Valor = valor;
             transacao.Descricao = descricao;
@@ -23,7 +24,7 @@ namespace Senai.Desafio.AplicacaoFinanceira.Controller {
             tr.Inserir (transacao);
 
         }
-        public static void DebitarDespesa () {
+        public static void DebitarDespesa (UsuarioModel us) {
             float valor;
             string descricao;
             Console.WriteLine ("Qual o Valor da despesa");
@@ -32,6 +33,7 @@ namespace Senai.Desafio.AplicacaoFinanceira.Controller {
             descricao = Console.ReadLine ();
 
             TransacaoModel transacao = new TransacaoModel ();
+            transacao.IdUsuario = us.Id;
             transacao.TipoTransacao = "Despesa";
             transacao.Valor = valor;
             transacao.Descricao = descricao;
@@ -41,11 +43,11 @@ namespace Senai.Desafio.AplicacaoFinanceira.Controller {
 
         }
 
-        public static void ListarTransacoes () {
+        public static void ListarTransacoes (UsuarioModel us) {
             List<TransacaoModel> listaTransacoes = tr.ListarTransacoes ();
 
             foreach (var item in listaTransacoes) {
-                if (item != null) {
+                if (item != null && us.Id.Equals(item.IdUsuario)) {
                     Console.WriteLine ($"{item.TipoTransacao}\nR${item.Valor}\n{item.Descricao}\n{item.DataTransacao}\n");
                     Console.WriteLine("---------------------------------------------------------------------------------");
                 }

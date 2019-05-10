@@ -9,7 +9,7 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
         public void Inserir (TransacaoModel tm) {
 
             StreamWriter sw = new StreamWriter ("transacoes.csv", true);
-            sw.WriteLine ($"{tm.TipoTransacao}; {tm.Descricao}; {tm.Valor}; {tm.DataTransacao}");
+            sw.WriteLine ($"{tm.IdUsuario};{tm.TipoTransacao}; {tm.Descricao}; {tm.Valor}; {tm.DataTransacao}");
             sw.Close ();
 
         }
@@ -31,10 +31,11 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
                 TransacaoListado = new TransacaoModel ();
                 string[] dadosTransacao = item.Split (";");
                 for (int i = 0; i < dadosTransacao.Length; i++) {
-                    TransacaoListado.TipoTransacao = dadosTransacao[0];
-                    TransacaoListado.Descricao = dadosTransacao[1];
-                    TransacaoListado.Valor = float.Parse (dadosTransacao[2]);
-                    TransacaoListado.DataTransacao = DateTime.Parse (dadosTransacao[3]);
+                    TransacaoListado.IdUsuario = int.Parse(dadosTransacao[0]);
+                    TransacaoListado.TipoTransacao = dadosTransacao[1];
+                    TransacaoListado.Descricao = dadosTransacao[2];
+                    TransacaoListado.Valor = float.Parse (dadosTransacao[3]);
+                    TransacaoListado.DataTransacao = DateTime.Parse (dadosTransacao[4]);
                 }
                 listaTransacoes.Add (TransacaoListado);
             }
