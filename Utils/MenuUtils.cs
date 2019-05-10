@@ -34,7 +34,9 @@ namespace Senai.Desafio.AplicacaoFinanceira.Utils {
             Console.WriteLine ("|---------------------------------------|");
             Console.WriteLine ("|   2 - Realizar Transição              |");
             Console.WriteLine ("|---------------------------------------|");
-            Console.WriteLine ("|   3 - Visualizar Conta                |");
+            Console.WriteLine ("|   3 - Visualizar Transações           |");
+            Console.WriteLine ("|---------------------------------------|");
+            Console.WriteLine ("|   4 - Visualizar Situação da conta    |");
             Console.WriteLine ("|---------------------------------------|");
             Console.WriteLine ("|   0 - Encerar transação               |");
             Console.WriteLine ("-----------------------------------------");

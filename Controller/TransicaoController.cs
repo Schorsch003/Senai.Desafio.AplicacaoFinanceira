@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Senai.Desafio.AplicacaoFinanceira.Model;
 using Senai.Desafio.AplicacaoFinanceira.Repositorio;
 
@@ -46,15 +47,32 @@ namespace Senai.Desafio.AplicacaoFinanceira.Controller {
         public static void ListarTransacoes (UsuarioModel us) {
             List<TransacaoModel> listaTransacoes = tr.ListarTransacoes ();
 
+            float receita =0;
+            float despesa = 0;
             foreach (var item in listaTransacoes) {
-                if (item != null && us.Id.Equals(item.IdUsuario)) {
+                if (item != null && us.Id.Equals (item.IdUsuario)) {
+
+
                     Console.WriteLine ($"{item.TipoTransacao}\nR${item.Valor}\n{item.Descricao}\n{item.DataTransacao}\n");
-                    Console.WriteLine("---------------------------------------------------------------------------------");
+                    Console.WriteLine ("---------------------------------------------------------------------------------");
+                    if(item.TipoTransacao.Equals("Receita")){
+                    receita += item.Valor;
+                    } else{
+                    despesa += item.Valor;
+                    }
+                    float Saldo = receita - despesa;
+
+                    Console.WriteLine($"Seu saldo é de: {Saldo}");
+
+                    
+
+
                 }
             }
-            Console.WriteLine("Pressione ENTER para voltar ao Menu");
-            Console.ReadLine();
-            
+            Console.WriteLine ("Pressione ENTER para voltar ao Menu");
+            Console.ReadLine ();
         }
+
+
     }
 }

@@ -41,5 +41,8 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
             }
             return listaTransacoes;
         }
+    
+    
+    
     }
 }

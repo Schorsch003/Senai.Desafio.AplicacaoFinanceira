@@ -50,13 +50,12 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
 
             foreach (var item in listaUsuarios) {
 
-                if (item != null && item.Email == email && item.Senha == senha) {
+                if (item != null && email.Equals (item.Email) && senha.Equals (item.Senha)) {
                     return item;
                 }
             }
 
             return null;
         }
-
     }
 }
