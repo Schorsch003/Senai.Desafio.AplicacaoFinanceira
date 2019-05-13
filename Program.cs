@@ -6,6 +6,8 @@ using Senai.Desafio.AplicacaoFinanceira.Utils;
 
 namespace Senai.Desafio.AplicacaoFinanceira {
     class Program {
+
+        static UsuarioRepositorio ur = new UsuarioRepositorio ();
         static void Main (string[] args) {
 
             Console.Clear ();
@@ -47,6 +49,9 @@ namespace Senai.Desafio.AplicacaoFinanceira {
                                 }
                             } while (!opcaoLogado);
                         }
+                        break;
+                    case 9:
+                        ur.CriarArquivo ();
                         break;
                     case 0:
                         querSair = true;

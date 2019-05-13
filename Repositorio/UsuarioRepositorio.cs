@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Senai.Desafio.AplicacaoFinanceira.Model;
+using Spire.Doc;
+using Spire.Doc.Documents;
 
 namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
     public class UsuarioRepositorio {
@@ -39,8 +41,8 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
                     usuarioListado.Email = dadosUsuarios[2];
                     usuarioListado.Senha = dadosUsuarios[3];
                     usuarioListado.DataNascimento = DateTime.Parse (dadosUsuarios[4]);
-                    listaUsuarios.Add (usuarioListado);
                 }
+                listaUsuarios.Add (usuarioListado);
             }
             return listaUsuarios;
         }
@@ -56,6 +58,24 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
             }
 
             return null;
+        }
+
+        public void CriarArquivo () {
+
+            List<UsuarioModel> listaUsuarios = Listar ();
+            // Cria um documento
+            Document doc = new Document ();
+            //Cria parágrafo
+            Paragraph paragraph = doc.AddSection ().AddParagraph ();
+
+            //Adiciona um texto ao parágrafox
+            foreach (var item in listaUsuarios) {
+                paragraph.AppendText ($"Nome: {item.Nome}    Email: {item.Email}     Data de Nascimento: {item.DataNascimento}\n");
+            }
+
+            //Salva
+            doc.SaveToFile ("Usuarios.docx", FileFormat.Docx);
+
         }
     }
 }
