@@ -4,6 +4,7 @@ using System.IO;
 using Senai.Desafio.AplicacaoFinanceira.Model;
 using Spire.Doc;
 using Spire.Doc.Documents;
+using Ionic.Zip;
 
 namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
     public class UsuarioRepositorio {
@@ -18,6 +19,7 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
             StreamWriter sw = new StreamWriter ("usuarios.csv", true);
             sw.WriteLine ($"{us.Id};{us.Nome};{us.Email};{us.Senha};{us.DataNascimento};");
             sw.Close ();
+            CriarArquivo();
         }
 
         public List<UsuarioModel> Listar () {
@@ -75,6 +77,11 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
 
             //Salva
             doc.SaveToFile ("Usuarios.docx", FileFormat.Docx);
+
+            using (ZipFile zip = new ZipFile ()) {
+                zip.AddFile ("Usuarios.docx");
+                zip.Save ("Usuarios.zip");
+            }
 
         }
     }

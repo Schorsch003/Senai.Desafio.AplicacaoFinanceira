@@ -8,6 +8,7 @@ namespace Senai.Desafio.AplicacaoFinanceira {
     class Program {
 
         static UsuarioRepositorio ur = new UsuarioRepositorio ();
+        static TransacaoRepositorio tr = new TransacaoRepositorio();
         static void Main (string[] args) {
 
             Console.Clear ();
@@ -44,6 +45,7 @@ namespace Senai.Desafio.AplicacaoFinanceira {
                                         break;
                                     case 0:
                                         //Encerar transação
+                                        tr.CriarArquivo();
                                         opcaoLogado = true;
                                         break;
                                 }
@@ -54,6 +56,7 @@ namespace Senai.Desafio.AplicacaoFinanceira {
                         ur.CriarArquivo ();
                         break;
                     case 0:
+                            ur.CriarArquivo();
                         querSair = true;
                         break;
                 }
