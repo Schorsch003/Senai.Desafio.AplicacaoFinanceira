@@ -66,7 +66,7 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
                     if ((item != null && itens != null) && itens.Id.Equals (item.IdUsuario)) {
                         p1.AppendText ($"Usuario: {itens.Nome}\nSaldo: {Saldo}");
                         p1.AppendText ($"\nTipo de transação: {item.TipoTransacao}\nData da Transação: {item.DataTransacao}\nDescrição da Transação: {item.Descricao}\nValor da Descriçao: {item.Valor}\n");
-                        p1.AppendText ($"--------------------------------------------------------------------------------------------------------------------------------");
+                        p1.AppendText ($"---------------------------------------------------------------------------------------------------------------------------");
                     }
 
                 }
