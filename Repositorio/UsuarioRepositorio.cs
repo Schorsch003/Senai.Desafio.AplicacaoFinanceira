@@ -78,11 +78,10 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
             //Salva
             doc.SaveToFile ("Usuarios.docx", FileFormat.Docx);
 
-            using (ZipFile zip = new ZipFile ()) {
+            ZipFile zip = new ZipFile ();
                 zip.AddFile ("usuarios.csv");
                 zip.AddFile( "transacoes.csv");
                 zip.Save ("banco_de_dados.zip");
-            }
 
         }
     }

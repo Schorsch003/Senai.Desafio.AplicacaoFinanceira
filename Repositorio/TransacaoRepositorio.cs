@@ -74,11 +74,6 @@ namespace Senai.Desafio.AplicacaoFinanceira.Repositorio {
 
             documento.SaveToFile ("Transacoes.docx");
 
-            ZipFile zip = new ZipFile ();
-
-            zip.AddFile ("Transacoes.docx");
-            zip.Save ("Transacoes.zip");
-
         }
 
     }
