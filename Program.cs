@@ -52,6 +52,7 @@ namespace Senai.Desafio.AplicacaoFinanceira {
                         }
                         break;
                     case 9:
+                    //Opção de teste para criação de arquivos ------ APENAS TESTE -------
                         UsuarioRepositorio ur = new UsuarioRepositorio ();
                         ur.CriarArquivo ();
                         break;
